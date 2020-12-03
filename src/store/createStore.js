@@ -6,4 +6,6 @@ import reducer from '../modules';
 
 const store = createStore(reducer, applyMiddleware( thunk, logger ));
 
+export const useStore = () => store;
+
 export  default store;

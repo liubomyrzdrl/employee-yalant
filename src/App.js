@@ -12,6 +12,8 @@ store.subscribe(() => {
 
 function App() {
   // console.log(store);
+
+
   return (
     <div className="wrapper">
       <Provider store={store}>
@@ -23,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default  App;

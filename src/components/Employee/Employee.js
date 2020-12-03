@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -7,16 +9,24 @@ import s from './Employee.module.scss';
 import { Checkbox } from '../Checkbox/Checkbox';
 
 
-const Employee = ({ employee, add,remove }) => {
+
+const Employee = ({
+ employee, add, remove, birthdayEmployee, 
+}) => {
+  // eslint-disable-next-line no-unused-vars
   
+ 
+   
     const onSwitch = ( checked ) => {
      
         if (!checked) {
              add(employee);
+         
+           
         } else {
             remove(employee.id);
         }
-      
+       
     };
     return (
       <div className={s.employee}>
@@ -25,9 +35,17 @@ const Employee = ({ employee, add,remove }) => {
           {employee.firstName}
           {' '}
         </div>
-        <Checkbox {...{ employee }} {...{ onSwitch }} />
+        <Checkbox {...{ onSwitch }} {...{ birthdayEmployee }} {...{ employee }} />
       </div>
     );
+};
+
+
+
+const mapStateToProps = (state) => {
+  return {
+    birthdayEmployee: state.birthdayReducer.items,
+  };
 };
 
 const mapDispatchToState = {
@@ -42,4 +60,4 @@ Employee.propTypes = {
     }),
   };
 
-export default connect (null, mapDispatchToState)(Employee);
+export default connect (mapStateToProps, mapDispatchToState)(Employee);
