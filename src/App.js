@@ -6,12 +6,8 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
-store.subscribe(() => {
-  console.log('Working');
-}); 
 
-function App() {
-  // console.log(store);
+function App() { 
   return (
     <div className="wrapper">
       <Provider store={store}>
@@ -23,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default  App;

@@ -1,0 +1,12 @@
+.employee {
+    display:  flex;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    &__lastName {
+        padding-right: 3%;
+    }
+    
+    &__firsName {
+        padding-right: 3%;
+    }
+}

@@ -1,4 +1,10 @@
 .footer {
-    background-color: grey;
+    display: flex;
+    align-items: center;
+    background-color: #0075ff;
     height: 10%;
+    div {
+
+        margin-left: 84%;
+    }
 }

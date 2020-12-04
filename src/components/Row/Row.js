@@ -1,41 +1,36 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-
-
-// import PropTypes from 'prop-types';
- 
 import uuid from 'uuid/dist/v4';
+import T from 'prop-types';
+import s from './Row.module.scss'; 
 import BirthdayEmployee from '../BirthdayEmployee/BirthdayEmployee';
 import '../../utils/month';
-// import { months } from '../../utils/months';
-
-// eslint-disable-next-line react/prop-types
-const Row = ({ birthday, title }) => {
-     const filtered = birthday.items.filter(item => {
-         
-         
-        return String(new Date(item.dob).getFormatMonth()) === String(title);
-    
-    
+ 
+const Row = ({ birthday, title }) => {     
+     const filtered = birthday.items.filter(item => {        
+        return String(new Date(item.dob).getFormatMonth()) === String(title);   
     });
 
     return (
-      <div>
-        <div>{title}</div>
+      <div className={s.row}>
+        <h3 className={s.row__title}>{title}</h3>
         {
               filtered.map(item => {                
-                  return     <BirthdayEmployee key={uuid()} {...item} />; 
+                  return <BirthdayEmployee key={uuid()} {...item} />; 
               })
-          }
-    
+          }    
       </div>
     );
 };
 
-// Row.propTypes = {
-//     title: PropTypes.string,
-//     isLoading: PropTypes.bool,
-//     // employees: PropTypes.arrayOf(PropTypes.object),
-//   };
+Row.propTypes = {
+    title: T.string,
+    isLoading: T.bool,
+    birthday: T.shape(T.shape({
+      id: T. string,
+      lastName: T.string,
+      firstName: T.string,
+      filter: T.func,    
+    })),
+  };
 
 export default Row;

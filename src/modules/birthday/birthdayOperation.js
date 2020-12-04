@@ -1,9 +1,16 @@
-import { addBirthday, removeBirthday } from './birthdayActions';
+import { addBirthday, addBirthdayList, removeBirthday } from './birthdayActions';
 
 export function addBirthdayFunc(item) {
     return function addBirthdayThunk(dispatch) {
-            console.log('addBirthdayThunk');
+       
         dispatch(addBirthday(item));
+    };
+};
+
+export function addBirthdayListFunc(items) {
+    return function addBirthdayListThunk(dispatch) {
+       
+        dispatch(addBirthdayList(items));
     };
 };
 
