@@ -6,7 +6,7 @@ export const months = {
  4: 'May' ,
  5: 'June' ,
  6: 'July' ,
- 7: 'Avgust' ,
+ 7: 'August' ,
  8: 'September' ,
  9: 'Oktober' ,
  10: 'November' ,

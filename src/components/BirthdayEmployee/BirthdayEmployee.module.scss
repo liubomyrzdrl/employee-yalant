@@ -1,4 +1,24 @@
-.birthday {
+.birthdayEmployee {
     display: flex;
     color: red;
+    margin-bottom: 1%;
+    
+    &__circle {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: red;
+        border: 0;
+        
+        align-self: center;
+        margin-right: 1%;
+    }
+    &__lastName{
+       padding-right: 2%; 
+      
+    }
+
+    &__firstName{
+        padding-right: 2%; 
+    }
 }

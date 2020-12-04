@@ -6,6 +6,7 @@ import uuid from 'uuid/dist/v4';
 import { getEmployees } from '../../../modules/employees';
 import { alphabet } from '../../../utils/alphabet';
 import Column from '../../Column/Column';
+import s from './EmployeeContainer.module.scss';
 
 
 
@@ -15,11 +16,13 @@ const EmploeeContainer = ({ employees, isLoading, getEmployees }) => {
     getEmployees();
   }, []);
     return (
-      <div>
-        <h3>Employees</h3>
-        { alphabet.map((item ) => (
-          <Column title={item} {...{ employees }} {...{ isLoading }} key={uuid()} /> 
+      <div className={s.container}>
+        <h2>Employees</h2> 
+        <div className={s.container__emloyees}>
+          { alphabet.map((item ) => (
+            <Column title={item} {...{ employees }} {...{ isLoading }} key={uuid()} /> 
          ))}
+        </div>
       </div>
     );
 };

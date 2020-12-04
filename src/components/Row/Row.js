@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-
+import uuid from 'uuid/dist/v4';
+import s from './Row.module.scss';
 
 // import PropTypes from 'prop-types';
  
-import uuid from 'uuid/dist/v4';
 import BirthdayEmployee from '../BirthdayEmployee/BirthdayEmployee';
 import '../../utils/month';
-// import { months } from '../../utils/months';
+ 
 
 // eslint-disable-next-line react/prop-types
 const Row = ({ birthday, title }) => {
@@ -20,8 +20,8 @@ const Row = ({ birthday, title }) => {
     });
 
     return (
-      <div>
-        <div>{title}</div>
+      <div className={s.row}>
+        <h3 className={s.row__title}>{title}</h3>
         {
               filtered.map(item => {                
                   return     <BirthdayEmployee key={uuid()} {...item} />; 

@@ -6,6 +6,7 @@ import Row from '../../Row/Row';
 import '../../../utils/month';
 import { months } from '../../../utils/months';
 import { setArray } from '../../../utils/setArray';
+import s from './BirthdayContainer.module.scss';
 
 
 const BirthdayContainer = ({ birthday }) => {
@@ -22,11 +23,11 @@ const filteredMonth =  filteredB.map(item => String(new Date(item.dob).getFormat
 
  
     return (
-      <div>
-        <h3>Birthday</h3>
+      <div className={s.birthday}>
+        <h1>Employees Birthday</h1>
        
         {
-             birthday.items.length === 0 ? <div>No selected employees</div> : (
+             birthday.items.length === 0 ? <div style={{ color: 'red' }}>No selected employees</div> : (
               items.map(title => {
                return  <Row key={uuid()} {...{ birthday }} {...{ title }} />;
              }))     

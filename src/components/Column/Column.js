@@ -3,6 +3,7 @@ import React from 'react';
 import uuid from 'uuid/dist/v4';
 import PropTypes from 'prop-types';
 import Employee from '../Employee/Employee';
+import s from './Column.module.scss';
 
 // eslint-disable-next-line react/prop-types
 const Column = ({ title, employees,  isLoading }) => {
@@ -21,8 +22,8 @@ const Column = ({ title, employees,  isLoading }) => {
         
 
     return (
-      <div>
-        <div>{ title }</div>
+      <div className={s.column}>
+        <div className={s.column__title}>{ title }</div>
         {fitlteredEmployees.length === 0 ? <div> - - - </div> : (
           <div> 
             {' '}
