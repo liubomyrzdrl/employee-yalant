@@ -9,8 +9,7 @@ const Column = ({ title, employees,  isLoading }) => {
 
      if(isLoading === true ) {
          return <div>Loading...</div>;
-     }
- 
+     } 
     const filtered = employees.filter(item => String(item.lastName)[0] === title);
     
     const fitlteredEmployees = filtered.map(employee => {
@@ -18,8 +17,6 @@ const Column = ({ title, employees,  isLoading }) => {
             <Employee {...{ employee }} key={uuid()} />
             );
         });
-        
-
     return (
       <div className={s.column}>
         <div className={s.column__title}>{ title }</div>

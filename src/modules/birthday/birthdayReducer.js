@@ -2,15 +2,13 @@ import { handleActions } from 'redux-actions';
 import { addBirthday, addBirthdayList, removeBirthday  } from './birthdayActions';
 
 const INITIAL_STATE = {
-    items: [
-      
-    ],
+    items: [],
 };
  
 
 export default handleActions({
    [addBirthday]: (state, action) => {
-        window.localStorage.setItem('e', JSON.stringify({
+    window.localStorage.setItem('e', JSON.stringify({
         ...state,
         items: [
             ...state.items,
@@ -23,30 +21,32 @@ export default handleActions({
         items: [
             ...state.items,
             action.payload,
-        ],
-        
+        ],        
     };
 
 },
-   [addBirthdayList]: (state, action) => {
-        
+   [addBirthdayList]: (state, action) => {        
     return {
         ...state,
-         items: action.payload,
-        
-        
+         items: action.payload,        
     };
 
 },
 
    [removeBirthday]: (state, action) => {
     window.localStorage.removeItem('e');
+    if(state.items.length > 1) {
+        window.localStorage.setItem('e', JSON.stringify({
+            ...state,
+            items: state.items.filter(item => item.id !== action.payload),
+          }));
+    }
      return {
          ...state,
          items: state.items.filter(item => item.id !== action.payload),
     };
+  },
 },
-},
-INITIAL_STATE
+   INITIAL_STATE
 );
 

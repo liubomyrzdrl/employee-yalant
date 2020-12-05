@@ -6,7 +6,6 @@ export function handleInit() {
         const storage = window.localStorage.getItem('e');
         if(storage) {
             const items = JSON.parse(storage);
-            console.log('items',items );
             dispatch(addBirthdayListFunc(items.items));
              
         }

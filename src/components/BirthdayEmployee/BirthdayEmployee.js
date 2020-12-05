@@ -6,7 +6,6 @@ import s from './BirthdayEmployee.module.scss';
 
 const BirthdayEmployee = ({ firstName, lastName, dob }) => { 
     const date = new Date(dob).getFormatDate();
-
     return (
       <div className={s.birthdayEmployee}>
         <div className={s.birthdayEmployee__circle} />
@@ -20,9 +19,9 @@ const BirthdayEmployee = ({ firstName, lastName, dob }) => {
 };
 
 BirthdayEmployee.propTypes = { 
-        lastName: T.string.isRequired,
-        firstName: T.string.isRequired,
-        dob: T.object,
+        lastName: T.string,
+        firstName: T.string,
+        dob: T.string,
 };
 
 export default BirthdayEmployee;

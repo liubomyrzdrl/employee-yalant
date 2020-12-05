@@ -14,8 +14,7 @@ const Employee = ({
   birthdayEmployees, 
 }) => {
      const onSwitch = ( checked ) => {
-     
-        if (!checked) {
+          if (!checked) {
              add(employee);
         } else {
             remove(employee.id);
@@ -57,11 +56,11 @@ Employee.propTypes = {
         lastName: T.string.isRequired,
         firstName: T.string.isRequired,
     }),
-    birthdayEmployees: T.shape({
+    birthdayEmployees: T.arrayOf(T.shape({
       id: T. string,
       lastName: T.string.isRequired,
       firstName: T.string.isRequired,
-   }),
+   })),
   };
 
 export default connect (mapStateToProps, mapDispatchToState)(Employee);

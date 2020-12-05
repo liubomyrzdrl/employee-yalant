@@ -6,7 +6,7 @@ import BirthdayEmployee from '../BirthdayEmployee/BirthdayEmployee';
 import '../../utils/month';
  
 const Row = ({ birthday, title }) => {     
-     const filtered = birthday.items.filter(item => {        
+     const filtered = birthday.filter(item => {        
         return String(new Date(item.dob).getFormatMonth()) === String(title);   
     });
 
@@ -25,11 +25,11 @@ const Row = ({ birthday, title }) => {
 Row.propTypes = {
     title: T.string,
     isLoading: T.bool,
-    birthday: T.shape(T.shape({
+    birthday: T.arrayOf(T.shape({
       id: T. string,
       lastName: T.string,
       firstName: T.string,
-      filter: T.func,    
+      dob: T.string,
     })),
   };
 

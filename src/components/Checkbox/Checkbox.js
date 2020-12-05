@@ -3,9 +3,9 @@ import T from 'prop-types';
 import s from './Checkbox.module.scss';
   
 export const Checkbox = ({  onSwitch,  employee, birthdayEmployees }) => {
+ 
  const i = birthdayEmployees.filter(item => item.id ===  employee.id); 
-  // eslint-disable-next-line no-unneeded-ternary
-  const[checked, setChecked] = useState(i.length === 0 ? false : true  );
+ const[checked, setChecked] = useState(i.length !== 0);
  
    const handleChange = () => {
         setChecked(!checked);
@@ -30,11 +30,11 @@ Checkbox.propTypes = {
         lastName: T.string,
         firstName: T.string,
     }),
-    birthdayEmployees: T.objectOf( T.shape({
+    birthdayEmployees: T.arrayOf( T.shape({
         id: T.string,
         lastName: T.string,
         firstName: T.string,
-        dob: T.object,
+        dob: T.string,
     })),
     onSwitch: T.func,
   };
